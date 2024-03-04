@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<!-- Bootstrap 5.1.1 -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+			crossorigin="anonymous"
+		/>
+		<!-- Font Awesome 6.5.1 -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+			integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<!-- 自行編輯 -->
+		<link rel="stylesheet" href="src/assets/style.css" />
+	</head>
+	<body>
+		<div id="app">
+			<!-- 儲存提示 (尚未實裝) -->
+			<div class="modal fade" id="saveTip" tabindex="-1">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">您的輸入尚未儲存</h5>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"
+							></button>
+						</div>
+						<div class="modal-body">需要儲存變更嗎?</div>
+						<div class="modal-footer">
+							<button
+								type="button"
+								class="btn btn-secondary me-auto"
+								data-bs-dismiss="modal"
+							>
+								取消
+							</button>
+							<button type="button" class="btn btn-deny">
+								放棄
+							</button>
+							<button type="button" class="btn btn-confirm">
+								儲存
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<aside id="sideBar" class="sideBar">
+				<div class="sideBar-header">
+					<a href="#">回首頁</a>
+				</div>
+				<hr />
+				<div class="sideBar-body">
+					<div
+						@click="editAccInfo"
+						:class="{'active': activeItem === 'editAccInfo'}"
+						class="sideBar-item"
+					>
+						修改個人基本資料
+					</div>
+					<div
+						@click="addCenter"
+						:class="{'active': activeItem === 'addCenter'}"
+						class="sideBar-item"
+					>
+						新建中心使用者
+					</div>
+					<div
+						@click="addCompany"
+						:class="{'active': activeItem === 'addCompany'}"
+						class="sideBar-item"
+					>
+						新建公司
+					</div>
+					<div
+						@click="maintainCustomerInfo"
+						:class="{'active': activeItem === 'maintainCustomerInfo'}"
+						class="sideBar-item"
+					>
+						維護客戶基本資料
+					</div>
+					<div
+						@click="userPermissions"
+						:class="{'active': activeItem === 'userPermissions'}"
+						class="sideBar-item"
+					>
+						設定使用者權限
+					</div>
+				</div>
+				<div class="sideBar-footer"></div>
+			</aside>
+
+			<main v-html="content"></main>
+		</div>
+
+		<!-- Bootstrap 5.1.1 -->
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+			crossorigin="anonymous"
+		></script>
+		<!-- axios -->
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<!-- <script src="src/main.js"></script> -->
+		<!-- 自行編輯 -->
+		<script src="src/utils/js/functions.js"></script>
+		<!-- <script src="src/utils/js/script.js"></script> -->
+		<!-- Vue 3 -->
+		<script type="module">
+			import {
+				createApp,
+				ref,
+			} from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+			createApp({
+				setup() {
+					const content = ref('ajax發生錯誤')
+					const activeItem = ref('editAccInfo')
+
+					// 首頁事件監聽 & 子頁事件監聽
+					function editAccInfo() {
+						activeItem.value = 'editAccInfo'
+						axios.get('src/services/ajax/editAccInfo.html').then((response) => {
+							content.value = response.data
+							editAccNameEvent()
+						})
+					}
+					function addCenter() {
+						activeItem.value = 'addCenter'
+						axios
+							.get('src/services/ajax/addCenter.html')
+							.then((response) => (content.value = response.data))
+					}
+					function addCompany() {
+						activeItem.value = 'addCompany'
+						axios
+							.get('src/services/ajax/addCompany.html')
+							.then((response) => (content.value = response.data))
+					}
+					function maintainCustomerInfo() {
+						activeItem.value = 'maintainCustomerInfo'
+						axios
+							.get('src/services/ajax/maintainCustomerInfo.html')
+							.then((response) => {
+								content.value = response.data
+								// 設定使用者權限的事件函數
+								maintainCustomerInfoEvent()
+							})
+					}
+					function userPermissions() {
+						activeItem.value = 'userPermissions'
+						axios
+							.get('src/services/ajax/userPermissions.html')
+							.then((response) => {
+								content.value = response.data
+								// 設定使用者權限的事件函數
+								userPremessionsNavEvent()
+							})
+					}
+
+					return {
+						content,
+						activeItem,
+						editAccInfo,
+						addCenter,
+						addCompany,
+						maintainCustomerInfo,
+						userPermissions,
+					}
+				},
+			}).mount('#app')
+		</script>
+	</body>
+</html>

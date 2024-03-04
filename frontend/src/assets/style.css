@@ -1,0 +1,300 @@
+:root {
+    --body-color: #f0f2f5;
+    --content-color: #ffffff;
+    --bg-color-dark: #191919;
+    --thead-color: #344767;
+    --default-color-deg: 195deg;
+    --default-color-start: #747b8a;
+    --default-color-end: #495361;
+    --btn-color-confirm: #F44335;
+    --btn-color-deny: #7b809a;
+    --btn-color-goback: #adff2f;
+    --btn-color-import: #198754;
+    --text-light: #ffffff;
+    --text-dark: #000000;
+    --text-gray: #67748e;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* 版面設定 */
+body {
+    background: var(--body-color);
+}
+aside {
+    width: 300px;
+}
+main {
+    margin-left: 300px;
+}
+hr {
+    border: 3px;
+    background: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+}
+
+/* 元素設定 */
+thead {
+    background-color: var(--thead-color);
+    color: var(--text-light);
+}
+
+/* 微調bootstrap設定 */
+.btn:focus {
+    box-shadow: none;
+    transition: all .15s ease-in-out,
+        background-color .15s ease-in-out,
+        border-color .15s ease-in-out,
+        box-shadow .15s ease-in-out;
+}
+/* .btn-primary:focus {
+    box-shadow: none;
+}
+.btn-primary:active:focus {
+    box-shadow: none;
+}
+.btn-secondary:active:focus {
+    box-shadow: none;
+} */
+
+/* 元件設定 */
+.sideBar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    padding: 1rem 0 1em 1rem;
+}
+.sideBar-header {
+    padding: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+.sideBar-header > * {
+    color: var(--text-dark);
+    text-decoration: none;
+}
+.sideBar-item {
+    padding: 1rem 2rem;
+    user-select: none;
+    transition: all 0.5s;
+}
+.sideBar-item:hover {
+    color: var(--text-light);
+    transform: scale(1.15);
+    cursor: pointer;
+    background-color: var(--thead-color);
+}
+.sideBar-item:active {
+    color: var(--text-light);
+    transform: scale(1);
+    background-color: var(--thead-color);
+    transition-duration: 0.1s;
+}
+.sideBar-item.active {
+    color: var(--text-light);
+    transform: scale(1.15);
+    background-color: var(--thead-color);
+}
+
+.report {
+    display: inline-block;
+    position: relative;
+    border-radius: 0.75rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding: 0 1rem 1rem 1rem;
+    vertical-align: bottom;
+    box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.1);
+    background-color: var(--content-color);
+}
+.report .clip {
+    position: relative;
+    top: -1.5rem;
+    left: 5%;
+    width: 90%;
+    padding: 1rem;
+    color: white;
+    background: linear-gradient(var(--default-color-deg), var(--default-color-start), var(--default-color-end));
+    border-radius: 1rem;
+    text-align: center;
+}
+.report .clip > * {
+    margin: 0;
+}
+.report .paper {
+    display: inline-block;
+    padding: 1rem;
+    vertical-align: bottom;
+    border: 3.5px dashed lightgray;
+    border-radius: 1rem;
+    overflow-x: auto;
+}
+.monitor {
+    position: relative;
+    margin-top: 1.5rem;
+    aspect-ratio: 16/9;
+    max-width: 100%;
+    max-height: calc(100vh - 5rem - 15px);
+    min-width: 675px;
+    box-shadow: 20px 20px 30px 0 rgba(0, 0, 0, 0.4);
+    border-radius: 0.25rem 0.25rem 0 0;
+}
+.monitor .screen {
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem;
+    overflow-x: auto;
+    background-color: var(--content-color);
+    border: 0.3rem solid gray;
+    border-bottom: none;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+.monitor .screen .nav {
+    align-items: flex-end;
+    margin-bottom: 15px;
+}
+.monitor .screen .nav .nav-item {
+    position: relative;
+    font-size: 0;
+}
+.monitor .screen .nav .nav-item > button {
+    margin: 0;
+    padding: 0rem 1rem;
+    font-size: 1rem;
+    color: var(--text-gray);
+    background-color: transparent;
+    border: none;
+    transition: all 0.5s;
+}
+#activeNav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 64px;
+    height: 1px;
+    background-color: black;
+    /* transition: all 0.5s; */
+}
+.monitor .screen .title {
+    padding: 25px 30px 0 30px;
+    margin-right: 20px;
+}
+.monitor .screen .title i {
+    font-size: 2rem;
+}
+.monitor .screen .title > * {
+    display: inline-block;
+    margin: 0;
+}
+.monitor .model {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 2px 0;
+    width: 100%;
+    min-height: 15px;
+    color: white;
+    text-align: center;
+    background-color: var(--thead-color);
+    box-shadow: 20px 20px 30px 0 rgba(0, 0, 0, 0.4);
+    border-radius: 0 0 0.25rem 0.25rem;
+}
+.monitor .model > * {
+    margin: 0;
+    vertical-align: middle;
+}
+.btn-defult {
+    color: var(--text-light);
+    background: linear-gradient(var(--default-color-deg), var(--default-color-start), var(--default-color-end));
+    border: 0;
+}
+.btn-defult:hover {
+    color: var(--text-light);
+    box-shadow: 0 14px 26px -12px rgba(123, 128, 154, 0.4), 0 4px 23px 0 rgba(123, 128, 154, 0.15), 0 8px 10px -5px rgba(123, 128, 154, 0.2);
+}
+.btn-defult:active {
+    transform: scale(0.95);
+    box-shadow: none !important;
+}
+.btn-defult:focus {
+    box-shadow: none;
+}
+.btn-defult:focus:hover {
+    box-shadow: 0 14px 26px -12px rgba(123, 128, 154, 0.4), 0 4px 23px 0 rgba(123, 128, 154, 0.15), 0 8px 10px -5px rgba(123, 128, 154, 0.2);
+}
+.btn-confirm {
+    color: var(--text-light);
+    background-color: var(--btn-color-confirm);
+}
+.btn-confirm:hover {
+    color: var(--text-light);
+    box-shadow: 0 14px 26px -12px rgba(123, 128, 154, 0.4), 0 4px 23px 0 rgba(123, 128, 154, 0.15), 0 8px 10px -5px rgba(123, 128, 154, 0.2);
+    ;
+}
+.btn-confirm:active {
+    transform: scale(0.95);
+    box-shadow: none !important;
+}
+.btn-confirm:focus {
+    box-shadow: none;
+}
+.btn-confirm:focus:hover {
+    box-shadow: 0 14px 26px -12px rgba(123, 128, 154, 0.4), 0 4px 23px 0 rgba(123, 128, 154, 0.15), 0 8px 10px -5px rgba(123, 128, 154, 0.2);
+}
+.btn-deny {
+    color: var(--text-light);
+    background-color: var(--btn-color-deny);
+}
+.btn-deny:hover {
+    color: var(--text-light);
+    box-shadow: 0 14px 26px -12px rgba(123, 128, 154, 0.4), 0 4px 23px 0 rgba(123, 128, 154, 0.15), 0 8px 10px -5px rgba(123, 128, 154, 0.2);
+    ;
+}
+.btn-deny:active {
+    transform: scale(0.95);
+    box-shadow: none !important;
+}
+.btn-deny:focus {
+    box-shadow: none;
+}
+.btn-deny:focus:hover {
+    box-shadow: 0 14px 26px -12px rgba(123, 128, 154, 0.4), 0 4px 23px 0 rgba(123, 128, 154, 0.15), 0 8px 10px -5px rgba(123, 128, 154, 0.2);
+}
+.btn-import {
+    color: var(--text-light);
+    background-color: var(--btn-color-import);
+}
+.btn-import:hover {
+    color: var(--text-light);
+    box-shadow: 0 14px 26px -12px rgba(123, 128, 154, 0.4), 0 4px 23px 0 rgba(123, 128, 154, 0.15), 0 8px 10px -5px rgba(123, 128, 154, 0.2);
+    ;
+}
+.btn-import:active {
+    transform: scale(0.95);
+    box-shadow: none !important;
+}
+.btn-import:focus {
+    box-shadow: none;
+}
+.btn-import:focus:hover {
+    box-shadow: 0 14px 26px -12px rgba(123, 128, 154, 0.4), 0 4px 23px 0 rgba(123, 128, 154, 0.15), 0 8px 10px -5px rgba(123, 128, 154, 0.2);
+}
+
+/* 微調其他設定 */
+.permission-form {
+    min-width: 640px;
+}
+.addacc-form {
+    max-width: 550px;
+    min-width: 250px;
+}
+.editAcc-form {
+    max-width: 550px;
+}
+.maintain-form {
+    min-width: 300px;
+    max-width: 550px;
+}
