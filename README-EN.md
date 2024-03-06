@@ -88,7 +88,7 @@ cd backend
 pip install -r requirements.txt
 
 # Start the server
-python django manage.py runserver
+python manage.py runserver
 ```
 
 #### Start Frontend

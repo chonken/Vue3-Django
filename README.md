@@ -89,7 +89,7 @@ cd backend
 pip install -r requirements.txt
 
 # 啟動
-python django manage.py runserver
+python manage.py runserver
 ```
 
 #### 啟動前端
