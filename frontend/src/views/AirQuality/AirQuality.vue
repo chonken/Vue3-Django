@@ -105,9 +105,9 @@
     </Monitor>
 </template>
 <script>
-import Monitor from './Monitor.vue';
-import NavbarSlide from './NavbarSlide.vue';
-import Loading from './Loading.vue';
+import Monitor from '@/components/Monitor/Monitor.vue';
+import NavbarSlide from '@/components/Navbar/NavbarSlide.vue';
+import Loading from '@/components/Loading/Loading.vue';
 export default {
     components: {
         Monitor,

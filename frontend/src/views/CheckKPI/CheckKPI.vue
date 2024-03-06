@@ -7,10 +7,10 @@
     </Monitor>
 </template>
 <script>
-import Monitor from './Monitor.vue';
-import NavbarSlide from './NavbarSlide.vue';
-import DefultButton from './DefultButton.vue';
-import RackingArea from './RackingArea.vue';
+import Monitor from '@/components/Monitor/Monitor.vue';
+import NavbarSlide from '@/components/Navbar/NavbarSlide.vue';
+import DefultButton from '@/components/Button/DefultButton.vue';
+import RackingArea from '@/components/RankingArea/RackingArea.vue';
 import axios from 'axios';
 export default {
     components: {

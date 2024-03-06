@@ -1,22 +1,22 @@
 <template>
     <Report>
         <template v-slot:title>
-            <h4>新增商品</h4>
+            <h4>新增分店</h4>
         </template>
         <template v-slot:content>
             <form ref="form" @submit.prevent="submit">
                 <section class="row">
-                    <div class="col-sm-12 col-md-8 mb-3">
+                    <div class="col-sm-12 mb-3">
                         <input type="text" class="form-control" name="name" placeholder="名稱" required />
                     </div>
-                    <div class="col-sm-12 col-md-4 mb-3">
-                        <input type="number" class="form-control" name="price" placeholder="單價" required />
+                    <div class="col-sm-12 col-md-6 mb-3">
+                        <input type="number" class="form-control" name="tax_id" placeholder="營業人統編" required />
                     </div>
                     <div class="col-sm-12 col-md-6 mb-3">
-                        <input type="number" class="form-control" name="stock" placeholder="庫存量" required />
+                        <input type="number" class="form-control" name="id" placeholder="門市編號" required />
                     </div>
-                    <div class="col-sm-12 col-md-6 mb-3">
-                        <input type="number" class="form-control" name="discount" placeholder="折扣" required />
+                    <div class="col-12 mb-3">
+                        <input type="text" class="form-control" name="address" placeholder="地址" required />
                     </div>
                 </section>
                 <DefultButton type="submit" class="btn btn-defult col-12 mb-3">確認</DefultButton>
@@ -25,9 +25,9 @@
     </Report>
 </template>
 <script>
-import Report from './Report.vue'
-import DefultButton from './DefultButton.vue';
-import axios from "axios";
+import Report from '@/components/Report/Report.vue'
+import DefultButton from '@/components/Button/DefultButton.vue';
+import axios from 'axios';
 export default {
     components: {
         Report,
@@ -39,7 +39,7 @@ export default {
 
             axios({
                 method: 'POST',
-                url: 'http://127.0.0.1:8000/CRUD/Product',
+                url: 'http://127.0.0.1:8000/CRUD/Store',
                 headers: {
                     'Content-Type': 'application/json'
                 },

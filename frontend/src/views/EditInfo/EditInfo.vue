@@ -104,9 +104,9 @@
     </Monitor>
 </template>
 <script>
-import Monitor from './Monitor.vue';
-import NavbarSlide from './NavbarSlide.vue';
-import DefultButton from './DefultButton.vue';
+import Monitor from '@/components/Monitor/Monitor.vue';
+import NavbarSlide from '@/components/Navbar/NavbarSlide.vue';
+import DefultButton from '@/components/Button/DefultButton.vue';
 import axios from 'axios';
 export default {
     components: {

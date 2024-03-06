@@ -1,25 +1,22 @@
 <template>
     <Report>
         <template v-slot:title>
-            <h4>新建客戶</h4>
+            <h4>新增商品</h4>
         </template>
         <template v-slot:content>
             <form ref="form" @submit.prevent="submit">
                 <section class="row">
-                    <div class="col-sm-12 col-md-6 mb-3">
+                    <div class="col-sm-12 col-md-8 mb-3">
                         <input type="text" class="form-control" name="name" placeholder="名稱" required />
                     </div>
-                    <div class="col-sm-12 col-md-6 mb-3">
-                        <input type="number" class="form-control" name="phone" placeholder="電話" required />
+                    <div class="col-sm-12 col-md-4 mb-3">
+                        <input type="number" class="form-control" name="price" placeholder="單價" required />
                     </div>
                     <div class="col-sm-12 col-md-6 mb-3">
-                        <input type="text" class="form-control" name="district" placeholder="行政區" required />
+                        <input type="number" class="form-control" name="stock" placeholder="庫存量" required />
                     </div>
                     <div class="col-sm-12 col-md-6 mb-3">
-                        <input type="text" class="form-control" name="id" placeholder="會員識別證" required />
-                    </div>
-                    <div class="col-md-12 mb-3 ">
-                        <input type="text" class="form-control" name="address" placeholder="地址" required />
+                        <input type="number" class="form-control" name="discount" placeholder="折扣" required />
                     </div>
                 </section>
                 <DefultButton type="submit" class="btn btn-defult col-12 mb-3">確認</DefultButton>
@@ -28,13 +25,13 @@
     </Report>
 </template>
 <script>
-import Report from "./Report.vue";
-import DefultButton from "./DefultButton.vue";
+import Report from '@/components/Report/Report.vue'
+import DefultButton from '@/components/Button/DefultButton.vue';
 import axios from "axios";
 export default {
     components: {
         Report,
-        DefultButton,
+        DefultButton
     },
     methods: {
         submit() {
@@ -42,7 +39,7 @@ export default {
 
             axios({
                 method: 'POST',
-                url: 'http://127.0.0.1:8000/CRUD/Customer',
+                url: 'http://127.0.0.1:8000/CRUD/Product',
                 headers: {
                     'Content-Type': 'application/json'
                 },
