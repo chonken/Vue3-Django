@@ -73,10 +73,10 @@
 
 ```bash
 # clone專案
-git clone https://github.com/chonken/Portfolio.git
+git clone https://github.com/chonken/Vue3-Django.git
 
 # 進入專案目錄
-cd Portfolio
+cd Vue3-Django
 ```
 
 #### 啟動後端

@@ -72,10 +72,10 @@ This is a project developed using `Vue3` and `Django`, aiming to experience and 
 
 ```bash
 # Clone the project
-git clone https://github.com/chonken/Portfolio.git
+git clone https://github.com/chonken/Vue3-Django.git
 
 # Navigate to the project directory
-cd Portfolio
+cd Vue3-Django
 ```
 
 #### Start Backend
