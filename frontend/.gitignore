@@ -2,6 +2,8 @@
 node_modules
 /dist
 
+# 本地端測試資料
+public/product/*
 
 # local env files
 .env.local

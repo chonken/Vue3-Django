@@ -75,6 +75,7 @@ export default {
   --monitor-title-color: #0B5A84;
   --monitor-border-color: #808080;
   --monitor-content-color: #fff;
+  --rankarea-color:#fff;
   --test: #000;
   /* --body-color: #f0f2f5; */
   /* --content-color: #ffffff; */
@@ -107,9 +108,5 @@ aside {
 }
 main {
   margin-left: 300px;
-}
-hr {
-  border: 3px;
-  background: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
 }
 </style>

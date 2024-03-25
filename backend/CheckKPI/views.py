@@ -20,7 +20,7 @@ def check_api(request, type):
     """
 
     if type == 'Popular':
-        queryset = OrderDetail.objects.values('product__name').annotate(sales_quantity=Sum('quantity')).order_by('-sales_quantity')[:10]
+        queryset = OrderDetail.objects.values('product__name', 'product__image').annotate(sales_quantity=Sum('quantity')).order_by('-sales_quantity')[:10]
         
         if not queryset:
             return JsonResponse({'success': False, 'error': '查無資料'})
@@ -29,7 +29,7 @@ def check_api(request, type):
         
         return JsonResponse({'success': True, 'data': querylist}, safe=False)
     elif type == 'TotalSales':
-        queryset = OrderDetail.objects.values('product__name').annotate(
+        queryset = OrderDetail.objects.values('product__name', 'product__image').annotate(
             total_sales=Sum(Round(F('quantity') * F('product__price')), output_field=models.IntegerField())
         ).order_by('-total_sales')[:10]
         

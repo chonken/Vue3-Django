@@ -1,8 +1,10 @@
 <template>
     <Monitor>
         <template v-slot:screen>
-            <RackingArea :member="popular">總銷售量</RackingArea>
-            <RackingArea :member="totalSales">總銷售額</RackingArea>
+            <div class="hidden-wrap">
+                <RackingArea :member="popular">總銷售量</RackingArea>
+                <RackingArea :member="totalSales">總銷售額</RackingArea>
+            </div>
         </template>
     </Monitor>
 </template>
@@ -47,7 +49,8 @@ export default {
                 if (response.data.success) {
                     let data = []
                     response.data.data.forEach(item => {
-                        data.push({ title: item['product__name'], content: item['sales_quantity'], url: "" })
+                        const content = "銷量: " + item['sales_quantity']
+                        data.push({ title: item['product__name'], content, url: item['product__image'] })
                     });
                     this.popular = data
                 } else {
@@ -74,7 +77,8 @@ export default {
                 if (response.data.success) {
                     let data = []
                     response.data.data.forEach(item => {
-                        data.push({ title: item['product__name'], content: "$: " + item['total_sales'], url: "" })
+                        const content = "銷售額: $" + item['total_sales']
+                        data.push({ title: item['product__name'], content, url: item['product__image'] })
                     });
                     this.totalSales = data
                 } else {
@@ -92,5 +96,8 @@ export default {
 }
 </script>
 <style scoped>
-
+.hidden-wrap {
+    height: 100%;
+    overflow-x: hidden;
+}
 </style>
