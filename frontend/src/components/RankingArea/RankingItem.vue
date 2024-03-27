@@ -2,7 +2,7 @@
     <div class="item">
         <div class="wrape" @mouseenter="toggle = true" @mouseleave="toggle = false">
             <div class="pic">
-                <img :src="'/product/' + url" @error="notFound">
+                <img :src="url" @error="notFound">
             </div>
             <div class="title">
                 <hr>
@@ -67,6 +67,12 @@ hr {
     height: 120px;
     width: 150px;
     min-width: 150px;
+}
+.pic img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
 }
 .title {
     padding: 0 0.5rem;

@@ -35,7 +35,7 @@ export default {
         /**
          * axios({ ``method``: 'GET', ``url``: '...Customer', })
          * 
-         * (``response``) => this.customerData
+         * (``response``) => this.popular
          */
         async getPopular() {
             try {
@@ -50,7 +50,7 @@ export default {
                     let data = []
                     response.data.data.forEach(item => {
                         const content = "銷量: " + item['sales_quantity']
-                        data.push({ title: item['product__name'], content, url: item['product__image'] })
+                        data.push({ title: item['product__name'], content, url: 'http://127.0.0.1:8000/product/' + item['product__image'] })
                     });
                     this.popular = data
                 } else {
@@ -63,7 +63,7 @@ export default {
         /**
          * axios({ ``method``: 'GET', ``url``: '...Store', })
          * 
-         * (``response``) => this.storeData
+         * (``response``) => this.totalSales
          */
         async getTotalSales() {
             try {
@@ -78,7 +78,7 @@ export default {
                     let data = []
                     response.data.data.forEach(item => {
                         const content = "銷售額: $" + item['total_sales']
-                        data.push({ title: item['product__name'], content, url: item['product__image'] })
+                        data.push({ title: item['product__name'], content, url: 'http://127.0.0.1:8000/product/' + item['product__image'] })
                     });
                     this.totalSales = data
                 } else {

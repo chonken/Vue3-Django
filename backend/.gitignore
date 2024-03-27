@@ -34,3 +34,6 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# 本地端測試資料
+product/*

@@ -134,3 +134,7 @@ CORS_ALLOW_METHODS = [
     'PUT',
     'DELETE',
 ]
+
+# 商品圖片位址
+MEDIA_ROOT = BASE_DIR / 'product'
+MEDIA_URL = '/product/'

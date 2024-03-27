@@ -42,7 +42,6 @@ export default {
             const planeWidth = this.$refs.plane.clientWidth
             const remainingLength = planeWidth - this.translate - rankWidth
 
-            console.log(planeWidth, this.translate, rankWidth, remainingLength)
             if (remainingLength === 0) {
                 this.translate = 0
             }

@@ -2,6 +2,7 @@ from django.forms import model_to_dict
 from django.db import IntegrityError
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
+from django.core.files.storage import FileSystemStorage
 import json
 
 from CRUD.models import *
@@ -24,7 +25,23 @@ def model_api(request, model_name, id=None):
         """
         前端傳來的Ajax資料
         """
-        return json.loads(request.body.decode('utf-8'))
+        if request.FILES:
+            if 'file' in request.FILES:
+                img_file = request.FILES['file']
+                fs = FileSystemStorage(location='product/')
+                fs.save(img_file.name, img_file)
+
+        if request.POST:
+            posts = {}
+            for field in request.POST:
+                posts[field] = request.POST[field]
+
+            return posts
+        else:
+            try:
+                return json.loads(request.body.decode('utf-8'))
+            except:
+                return False
     
     # 從global namespace找model
     try:
