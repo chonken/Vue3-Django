@@ -38,7 +38,7 @@
 - 由於作業系統內建的錄影功能無法錄製其他視窗，因此採取分開錄影後合併
 ```
 
-![增刪查改](exhibit/Postman-CRUD.gif '增刪查改')
+https://github.com/chonken/Vue3-Django/assets/61108846/d6d65a56-b15d-4b9e-be21-570a81af7aa1
 
 > 用 Postman 展示後端的增刪查改 API
 
