@@ -21,14 +21,51 @@
 
 ###### CheckKPI
 
--   **查詢總銷量**： 查詢總銷量排行榜前10名
--   **查詢總銷售額**： 查詢總銷售額排行榜前10名
+-   **查詢總銷量**： 查詢總銷量排行榜前 10 名
+-   **查詢總銷售額**： 查詢總銷售額排行榜前 10 名
 
 #### 前端
 
 -   **新增客戶、商品、門市**： 新增資料
 -   **編輯資料**： 修改客戶或商品或門市的資料
 -   **查看績效**： 查看總銷量和銷售額
+
+## 展示
+
+#### 增刪查改
+
+<font color="red">!由於作業系統內建的錄影功能無法錄製其他視窗，因此採取分開錄影後合併</font>
+
+<video width="100%" controls>
+    <source src="exhibit/Postman-CRUD.mp4" type="video/mp4">
+</video>
+> 用Postman展示後端的增刪查改API
+
+###### 新增客戶
+
+![新增客戶](exhibit/Add-customer.gif '新增客戶')
+
+###### 新增商品
+
+![新增商品](exhibit/Add-product.gif '新增商品')
+
+###### 新增門市
+
+![新增門市](exhibit/Add-store.gif '新增門市')
+
+###### 編輯資料
+
+![編輯資料](exhibit/Edit-info.gif '編輯資料')
+
+#### 查看績效
+
+![查看績效](exhibit/Postman-check.gif '查看績效')
+
+> 用 Postman 展示後端的查看績效 API
+
+![查看績效](exhibit/CheckKPI.gif '查看績效')
+
+> 目前是製作後台管理，沒有客戶訂購的功能，讓我們模擬客戶訂購了 1000 個 test
 
 ## 專案版本號
 
