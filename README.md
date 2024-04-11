@@ -34,12 +34,13 @@
 
 #### 增刪查改
 
-<font color="red">!由於作業系統內建的錄影功能無法錄製其他視窗，因此採取分開錄影後合併</font>
+```diff
+- 由於作業系統內建的錄影功能無法錄製其他視窗，因此採取分開錄影後合併
+```
 
-<video width="100%" controls>
-    <source src="exhibit/Postman-CRUD.mp4" type="video/mp4">
-</video>
-> 用Postman展示後端的增刪查改API
+![增刪查改](exhibit/Postman-CRUD.gif '增刪查改')
+
+> 用 Postman 展示後端的增刪查改 API
 
 ###### 新增客戶
 
