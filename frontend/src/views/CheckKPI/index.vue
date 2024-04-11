@@ -9,10 +9,10 @@
     </Monitor>
 </template>
 <script>
-import Monitor from '@/components/Monitor/Monitor.vue';
-import NavbarSlide from '@/components/Navbar/NavbarSlide.vue';
+import Monitor from '@/components/Monitor';
+import NavbarSlide from '@/components/Navbar';
 import DefultButton from '@/components/Button/DefultButton.vue';
-import RackingArea from '@/components/RankingArea/RackingArea.vue';
+import RackingArea from '@/components/RankingArea';
 import axios from 'axios';
 export default {
     components: {

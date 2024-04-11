@@ -104,8 +104,8 @@
     </Monitor>
 </template>
 <script>
-import Monitor from '@/components/Monitor/Monitor.vue';
-import NavbarSlide from '@/components/Navbar/NavbarSlide.vue';
+import Monitor from '@/components/Monitor';
+import NavbarSlide from '@/components/Navbar';
 import DefultButton from '@/components/Button/DefultButton.vue';
 import axios from 'axios';
 export default {
@@ -126,6 +126,7 @@ export default {
     },
     methods: {
         submit() {
+            // bug 中文輸入時會，其他資料可能會消失，待修復
             const formData = new FormData(this.$refs.form)
 
             let customerObj = {};
@@ -182,7 +183,6 @@ export default {
             if (productList.length > 0) {
                 this.setProductData(productList)
                 this.getProductData()
-                console.log(1)
             }
 
             document.querySelectorAll('input').forEach((input) => { input.value = '' })

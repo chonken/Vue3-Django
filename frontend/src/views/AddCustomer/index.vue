@@ -7,19 +7,23 @@
             <form ref="form" @submit.prevent="submit">
                 <section class="row">
                     <div class="col-sm-12 col-md-6 mb-3">
-                        <input type="text" class="form-control" name="name" placeholder="名稱" required />
+                        <input type="text" class="form-control" name="name" placeholder="名稱" autocomplete="off"
+                            required />
                     </div>
                     <div class="col-sm-12 col-md-6 mb-3">
-                        <input type="number" class="form-control" name="phone" placeholder="電話" required />
+                        <input type="number" class="form-control" name="phone" placeholder="電話" autocomplete="off"
+                            required />
                     </div>
                     <div class="col-sm-12 col-md-6 mb-3">
                         <input type="text" class="form-control" name="district" placeholder="行政區" required />
                     </div>
                     <div class="col-sm-12 col-md-6 mb-3">
-                        <input type="text" class="form-control" name="id" placeholder="會員識別證" required />
+                        <input type="text" class="form-control" name="id" placeholder="會員識別證" autocomplete="off"
+                            required />
                     </div>
                     <div class="col-md-12 mb-3 ">
-                        <input type="text" class="form-control" name="address" placeholder="地址" required />
+                        <input type="text" class="form-control" name="address" placeholder="地址" autocomplete="off"
+                            required />
                     </div>
                 </section>
                 <DefultButton type="submit" class="btn btn-defult col-12 mb-3">確認</DefultButton>
@@ -28,7 +32,7 @@
     </Report>
 </template>
 <script>
-import Report from '@/components/Report/Report.vue'
+import Report from '@/components/Report'
 import DefultButton from '@/components/Button/DefultButton.vue';
 import axios from "axios";
 export default {
@@ -48,7 +52,9 @@ export default {
                 },
                 data: formData
             })
-                .then((response) => { console.log(response) })
+                .then((response) => {
+                    if (response.data.success) alert('新增成功')
+                    else alert(response.data.error) })
                 .catch((error) => { console.log(error) })
         }
     }

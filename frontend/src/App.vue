@@ -2,7 +2,6 @@
   <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
   <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
   <Sidebar :sidebarTitle="sidebarTitle" :defaultId="defaultId" @active="changePages"></Sidebar>
-  <!-- <main v-html="mainContent"></main> -->
   <main>
     <AddCustomer v-if="page === 'addCustomer'"></AddCustomer>
     <AddProduct v-else-if="page === 'addProduct'"></AddProduct>
@@ -18,14 +17,13 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.bundle'
 import '@fortawesome/fontawesome-free/css/all.css'
-// import './assets/style.css'
-import Sidebar from './views/Sidebar/Sidebar.vue'
-import AddCustomer from './views/AddCustomer/AddCustomer.vue'
-import AddProduct from './views/AddProduct/AddProduct.vue'
-import AddBranch from './views/AddBranch/AddBranch.vue'
-import EditInfo from './views/EditInfo/EditInfo.vue'
-import CheckKPI from './views/CheckKPI/CheckKPI.vue'
-// import AirQuality from './components/AirQuality.vue'
+import Sidebar from './views/Sidebar'
+import AddCustomer from './views/AddCustomer'
+import AddProduct from './views/AddProduct'
+import AddBranch from './views/AddBranch'
+import EditInfo from './views/EditInfo'
+import CheckKPI from './views/CheckKPI'
+// import AirQuality from './views/AirQuality'
 
 export default {
   name: 'App',

@@ -7,16 +7,20 @@
             <form ref="form" @submit.prevent="submit">
                 <section class="row">
                     <div class="col-sm-12 mb-3">
-                        <input type="text" class="form-control" name="name" placeholder="名稱" required />
+                        <input type="text" class="form-control" name="name" placeholder="名稱" autocomplete="off"
+                            required />
                     </div>
                     <div class="col-sm-12 col-md-6 mb-3">
-                        <input type="number" class="form-control" name="tax_id" placeholder="營業人統編" required />
+                        <input type="number" class="form-control" name="tax_id" placeholder="營業人統編" autocomplete="off"
+                            required />
                     </div>
                     <div class="col-sm-12 col-md-6 mb-3">
-                        <input type="number" class="form-control" name="id" placeholder="門市編號" required />
+                        <input type="number" class="form-control" name="id" placeholder="門市編號" autocomplete="off"
+                            required />
                     </div>
                     <div class="col-12 mb-3">
-                        <input type="text" class="form-control" name="address" placeholder="地址" required />
+                        <input type="text" class="form-control" name="address" placeholder="地址" autocomplete="off"
+                            required />
                     </div>
                 </section>
                 <DefultButton type="submit" class="btn btn-defult col-12 mb-3">確認</DefultButton>
@@ -25,7 +29,7 @@
     </Report>
 </template>
 <script>
-import Report from '@/components/Report/Report.vue'
+import Report from '@/components/Report'
 import DefultButton from '@/components/Button/DefultButton.vue';
 import axios from 'axios';
 export default {
@@ -45,7 +49,10 @@ export default {
                 },
                 data: formData
             })
-                .then((response) => { console.log(response) })
+                .then((response) => {
+                    if (response.data.success) alert('新增成功')
+                    else alert(response.data.error)
+                })
                 .catch((error) => { console.log(error) })
         }
     }
