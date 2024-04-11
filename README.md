@@ -90,7 +90,7 @@ https://github.com/chonken/Vue3-Django/assets/61108846/d6d65a56-b15d-4b9e-be21-5
 -   **Axios**： 1.6.7
 -   **Font Awesome**： 6.5.1
 
-<details>
+</details>
 
 ## 資料夾說明
 
