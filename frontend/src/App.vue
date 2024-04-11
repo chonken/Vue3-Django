@@ -73,7 +73,7 @@ export default {
   --monitor-title-color: #0B5A84;
   --monitor-border-color: #808080;
   --monitor-content-color: #fff;
-  --rankarea-color:#fff;
+  --rankarea-color: #fff;
   --test: #000;
   /* --body-color: #f0f2f5; */
   /* --content-color: #ffffff; */
@@ -94,7 +94,7 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Microsoft JhengHei', sans-serif;
 }
 
 /* 版面設定 */

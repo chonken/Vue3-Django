@@ -70,6 +70,8 @@
 
 ## 專案版本號
 
+<details><summary>顯示更多</summary>
+
 #### 後端
 
 -   **Python**： 3.11.7
@@ -87,6 +89,8 @@
 -   **Bootstrap**： 5.3.2
 -   **Axios**： 1.6.7
 -   **Font Awesome**： 6.5.1
+
+<details>
 
 ## 資料夾說明
 
